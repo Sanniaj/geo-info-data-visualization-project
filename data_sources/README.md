@@ -37,7 +37,7 @@ print("Geo-Info visualization dependencies installed successfully!")
 
 ---
 
-## 📄 Notes
+## Notes
 
 - Tested on Python 3.10+.
 - Virtual environment (`venv/`) should not be committed to Git.
