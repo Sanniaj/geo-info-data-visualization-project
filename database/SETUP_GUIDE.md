@@ -8,20 +8,20 @@ The `core-database` branch includes a complete PostgreSQL + PostGIS database imp
 
 ```
 database/
-├── config.py                           # Database configuration (follows ml-data-sources pattern)
-├── connection.py                       # Connection pooling and context managers
-├── spatial_utils.py                    # PostGIS helper functions for spatial queries
-├── requirements.txt                    # Python dependencies
-├── README.md                          # Full documentation
-├── SETUP_GUIDE.md                     # This file
-├── schema/                            # SQL schema files (step-by-step)
-│   ├── step_01_create_database.sql    # PostGIS extensions
-│   ├── step_02_lookup_tables.sql      # Seasons, vegetation types
-│   ├── step_03_main_observations.sql  # Main spatial table with partitions
-│   └── step_04_spatial_indexes.sql    # GIST spatial indexes
-└── migrations/
-    ├── __init__.py
-    └── run_migration.py               # Python script to run migrations
+  config.py                           # Database configuration (follows ml-data-sources pattern)
+  connection.py                       # Connection pooling and context managers
+  spatial_utils.py                    # PostGIS helper functions for spatial queries
+  requirements.txt                    # Python dependencies
+  README.md                          # Full documentation
+  SETUP_GUIDE.md                     # This file
+  schema/                            # SQL schema files (step-by-step)
+    step_01_create_database.sql    # PostGIS extensions
+    step_02_lookup_tables.sql      # Seasons, vegetation types
+    step_03_main_observations.sql  # Main spatial table with partitions
+    step_04_spatial_indexes.sql    # GIST spatial indexes
+  migrations/
+    __init__.py
+    run_migration.py               # Python script to run migrations
 
 .env.example                           # Environment configuration template
 ```
@@ -151,20 +151,20 @@ python run_migration.py --start 4 --end 4
 
 ## Key Features
 
-✅ **PostGIS Spatial Support** - Geographic queries with GEOGRAPHY type
-✅ **Table Partitioning** - Partitioned by year for performance
-✅ **Python-Based** - Follows existing branch patterns
-✅ **Connection Pooling** - Efficient database connections
-✅ **Spatial Utilities** - Helper functions for common operations
-✅ **Step-by-Step Setup** - Run migrations incrementally
+- **PostGIS Spatial Support** - Geographic queries with GEOGRAPHY type
+- **Table Partitioning** - Partitioned by year for performance
+- **Python-Based** - Follows existing branch patterns
+- **Connection Pooling** - Efficient database connections
+- **Spatial Utilities** - Helper functions for common operations
+- **Step-by-Step Setup** - Run migrations incrementally
 
 ## Next Steps
 
-1. ✅ Database schema created
-2. ⏳ Import data from ml-data-sources branch
-3. ⏳ Create API endpoints in API-framework
-4. ⏳ Add authentication from user-auth
-5. ⏳ Set up QGIS for visualization
+1. Database schema created
+2. Import data from ml-data-sources branch
+3. Create API endpoints in API-framework
+4. Add authentication from user-auth
+5. Set up QGIS for visualization
 
 ## Troubleshooting
 

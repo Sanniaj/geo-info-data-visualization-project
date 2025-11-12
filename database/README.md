@@ -120,26 +120,27 @@ python run_migration.py --start 3
 from connection import test_connection
 
 if test_connection():
-    print("✓ Database ready!")
+    print("Database ready!")
 ```
 
 ## Directory Structure
 
 ```
 database/
-├── config.py                    # Database configuration
-├── connection.py                # Connection management
-├── spatial_utils.py            # PostGIS helper functions
-├── requirements.txt            # Python dependencies
-├── README.md                   # This file
-├── schema/                     # SQL schema files
-│   ├── step_01_create_database.sql
-│   ├── step_02_lookup_tables.sql
-│   ├── step_03_main_observations.sql
-│   └── step_04_spatial_indexes.sql
-└── migrations/                 # Python migration scripts
-    ├── __init__.py
-    └── run_migration.py        # Migration runner
+config.py                    # Database configuration
+connection.py                # Connection management
+spatial_utils.py            # PostGIS helper functions
+requirements.txt            # Python dependencies
+README.md                   # This file
+schema/                     # SQL schema files
+    step_01_create_database.sql
+    step_02_lookup_tables.sql
+    step_03_main_observations.sql
+    step_04_spatial_indexes.sql
+        migrations/                 # Python migration scripts
+            __init__.py
+        run_migration.py        # Migration runner
+    .env.example                # Environment configuration template
 ```
 
 ## Usage Examples

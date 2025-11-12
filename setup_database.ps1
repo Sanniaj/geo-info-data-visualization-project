@@ -17,7 +17,7 @@ if ($currentBranch -ne "core-database") {
         exit 1
     }
 }
-Write-Host "✓ On core-database branch" -ForegroundColor Green
+Write-Host "On core-database branch" -ForegroundColor Green
 Write-Host ""
 
 # Step 2: Create .env file
@@ -26,7 +26,7 @@ if (Test-Path ".env") {
     Write-Host ".env file already exists. Skipping..." -ForegroundColor Yellow
 } else {
     Copy-Item ".env.example" ".env"
-    Write-Host "✓ Created .env file from template" -ForegroundColor Green
+    Write-Host "Created .env file from template" -ForegroundColor Green
     Write-Host ""
     Write-Host "IMPORTANT: Please edit .env and set your PostgreSQL password!" -ForegroundColor Red
     Write-Host "File location: $(Get-Location)\.env" -ForegroundColor Yellow
@@ -49,14 +49,14 @@ if ($LASTEXITCODE -ne 0) {
     Set-Location ..
     exit 1
 }
-Write-Host "✓ Python dependencies installed" -ForegroundColor Green
+Write-Host "Python dependencies installed" -ForegroundColor Green
 Write-Host ""
 
 # Step 4: Test database connection
 Write-Host "[4/6] Testing database connection..." -ForegroundColor Yellow
 $testResult = python -c "from connection import test_connection; import sys; sys.exit(0 if test_connection() else 1)"
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "✗ Database connection failed!" -ForegroundColor Red
+    Write-Host "Database connection failed!" -ForegroundColor Red
     Write-Host ""
     Write-Host "Please ensure:" -ForegroundColor Yellow
     Write-Host "  1. PostgreSQL is installed and running" -ForegroundColor Yellow
@@ -68,7 +68,7 @@ if ($LASTEXITCODE -ne 0) {
     Set-Location ..
     exit 1
 }
-Write-Host "✓ Database connection successful" -ForegroundColor Green
+Write-Host "Database connection successful" -ForegroundColor Green
 Write-Host ""
 
 # Step 5: Run migrations
@@ -76,12 +76,12 @@ Write-Host "[5/6] Running database migrations..." -ForegroundColor Yellow
 Set-Location migrations
 python run_migration.py
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "✗ Migration failed!" -ForegroundColor Red
+    Write-Host "Migration failed!" -ForegroundColor Red
     Set-Location ..\..
     exit 1
 }
 Set-Location ..
-Write-Host "✓ Database migrations completed" -ForegroundColor Green
+Write-Host "Database migrations completed" -ForegroundColor Green
 Write-Host ""
 
 # Step 6: Summary
@@ -90,11 +90,11 @@ Write-Host ""
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "SETUP SUMMARY" -ForegroundColor Cyan
 Write-Host "============================================" -ForegroundColor Cyan
-Write-Host "✓ Branch: core-database" -ForegroundColor Green
-Write-Host "✓ Environment: .env configured" -ForegroundColor Green
-Write-Host "✓ Dependencies: Installed" -ForegroundColor Green
-Write-Host "✓ Database: Connected" -ForegroundColor Green
-Write-Host "✓ Schema: Migrated" -ForegroundColor Green
+Write-Host "Branch: core-database" -ForegroundColor Green
+Write-Host "Environment: .env configured" -ForegroundColor Green
+Write-Host "Dependencies: Installed" -ForegroundColor Green
+Write-Host "Database: Connected" -ForegroundColor Green
+Write-Host "Schema: Migrated" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Yellow
 Write-Host "  1. Test the setup: python database\test_db.py" -ForegroundColor Cyan
